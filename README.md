@@ -26,11 +26,11 @@ Dataset MNIST (Modified National Institute of Standards and Technology) merupaka
 
 **Jawab:**
 
-Dari hasil perhitungan jumlah data untuk masing-masing label, maka dihasilkan perbedaan jumlah data yang cukup signifikan. Hal ini menunjukkan bahwa data dianggap imbalance. 
+Dari hasil perhitungan jumlah data untuk masing-masing label, maka dihasilkan perbedaan jumlah data yang tidak signifikan. Hal ini menunjukkan bahwa data dianggap balance. 
 
 ![Screenshot](./images/02.jpg)
 
-Selain itu untuk membuktikan bahwa data termasuk imbalance, maka dilakukan perhitungan seperti gambar di bawah. Terbukti bahwa data tidak seimbang atau imbalance. Hal ini dibuktikan dari perhitungan yang menunjukkan bahwa nilai ambang batas yaitu: **jumlah seluruh data / jumlah label** (70.000 / 10 = 7.000). Kemudian diberikan kondisi apabila jumlah data >= 7.000 maka dianggap True dan data termasuk balance, namun jika < 7.000 maka data dianggap imbalance. 
+Selain itu untuk membuktikan bahwa data termasuk balance, maka dilakukan perhitungan seperti gambar di bawah. dengan menghitung standar deviasi, kemudian dilakukan perbandingan dengan ambang batas, yang mana ambang batas ini kami tentukan sebesar 5% dari jumlah keseluruhan data atau sebesar 3.500. Data dikatakan balance apabila nilai standar deviasi kurang dari ambang batas, yang sama artinya dengan apabila jumlah data pada masing-masing label kurang dari ambang batas, maka data dikatakan imbalance.
 
 ![Screenshot](./images/03.jpg)
 
