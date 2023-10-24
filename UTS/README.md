@@ -23,8 +23,8 @@ Berdasarkan pemaparan kasus, Anda diminta untuk,
 
 **Open Challange (Opsional)**
 
-Bagaimana cara melakukan evaluasi pada hasil segementasi?
-Terapkan pada kasus ini!
+- Bagaimana cara melakukan evaluasi pada hasil segementasi?
+- Terapkan pada kasus ini!
 
 **Catatan:**
 
@@ -61,3 +61,32 @@ Berikut adalah visualisasi sebaran warna dalam setiap gambar, dengan fungsi plot
 ![Alt text](image/sp-4.png)
 ![Alt text](image/sp-5.png)
 
+## Segmentasi Citra dengan Algoritma K-Means
+Proses segmentasi menggunakan metode K-Means Clustering memerlukan jumlah cluster, dalam hal ini di set n_clusters=2, karena ingin membagi citra ke dalam dua kelompok warna dominan yang mewakili citra. 
+- Selanjutnya model K-Means diinisialisasikan dengan jumlah cluster yang telah ditentukan, dan model akan memulai proses pengelompokan. 
+- Kemudian model dilatih dengan data gambar yang sudah dilakukan preprocessing sebelumnya. Ini berarti model mencoba menemukan dua kelompok piksel yang mirip satu sama lain berdasarkan warna. Hasil dari proses ini adalah label cluster untuk setiap piksel dalam gambar, yang menunjukkan keanggotaan piksel ke dalam salah satu dari dua kelompok.
+- Setelah pengelompokan selesai, model menghitung pusat dari masing-masing kluster (dalam hal ini, dua pusat kluster). Pusat kluster adalah nilai warna yang paling mewakili keseluruhan kelompok.
+- Mengganti Warna Gambar Asli: Gambar asli diubah dengan cara menggantikan setiap piksel dengan warna dari salah satu pusat kluster sesuai dengan label cluster piksel tersebut. Hasilnya adalah gambar yang sudah disegmentasi menjadi dua kelompok warna.
+![Alt text](image/kmeans.png)
+
+## Konversi Biner
+Konversi citra ke dalam biner dilakukan untuk mempermudah dan menyederhanakan analisis. Selain itu konversi hasil segmentasi ke dalam biner juga diperlukan untuk proses evaluasi.
+
+![Alt text](image/kmeans-binary.png)
+
+## Evaluasi dengan Ground Truth (LabelBox)
+Evaluasi hasil segmentasi dari K-Means Clustering dengan ground truth (GT) yang berasal dari Labelbox, yang dilakukan dengan membandingkan antara citra hasil segmentasi yang dihasilkan oleh K-Means Clustering dengan citra GT yang dianggap sebagai referensi yang benar. 
+- Proses pembuatan Ground Truth (GT) dengan Labelbox melibatkan pengidentifikasian dan pelabelan objek pada gambar sehingga hasil label yang dihasilkan dapat dijadikan referensi yang benar atau "kebenaran" untuk tujuan evaluasi dalam tugas segmentasi objek atau pengenalan objek pada citra.
+- Proses pembuatan GT pada LabelBox dilakukan dengan:
+    - Mengunggah dataset
+    - Mendefinisikan tugas labeling --> mengidentifikasi dan melabeli objek dengan membuat GT untuk segmentasi objek
+    - Pengaturan labeling, pembagian tugas, proses labeling
+    - Validasi dan koreksi
+    - Ekspor data label
+- Dalam studi kasus ini, kami menggunakan metrik evaluasi **akurasi** dalam mengukur sejauh mana citra hasil segmentasi K-Means cocok dengan citra hasil segmentasi Labelbox. Akurasi mengukur persentase piksel yang diklasifikasikan dengan benar dalam segmentasi dibandingkan dengan citra hasil segmentasi Labelbox. 
+- Akurasi dihitung dengan cara menghitung jumlah piksel yang cocok (matching_pixels) dan membaginya dengan total piksel dalam gambar (total_pixels), kemudian dikalikan dengan 100 untuk menghasilkan persentase akurasi. Berikut ini adalah rumus untuk menghitung akurasi:
+
+    ![Alt text](image/rumus-akurasi.png)
+
+## Hasil Evaluasi
+![Alt text](image/hasil-eval.png)
