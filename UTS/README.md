@@ -88,5 +88,9 @@ Evaluasi hasil segmentasi dari K-Means Clustering dengan ground truth (GT) yang 
 
     ![Alt text](image/rumus-akurasi.png)
 
-## Hasil Evaluasi
+## Hasil Evaluasi dengan Ground Truth (LabelBox)
 ![Alt text](image/hasil-eval.png)
+
+## Evaluasi dengan Pytesseract
+![Alt text](image/pytesseract-1.png)
+![Alt text](image/pytesseract-2.png)
